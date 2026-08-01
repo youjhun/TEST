@@ -1,0 +1,178 @@
+{
+ "concepts": [
+  {
+   "id": "딥러닝",
+   "label": "딥러닝",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "선형대수",
+    "미분"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "선형대수",
+   "label": "선형대수",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "미분",
+   "label": "미분",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "신경망",
+   "label": "신경망",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "딥러닝",
+    "선형변환",
+    "활성화-함수"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "선형변환",
+   "label": "선형변환",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "활성화-함수",
+   "label": "활성화 함수",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "순전파",
+   "label": "순전파",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "신경망"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "손실-함수",
+   "label": "손실 함수",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "순전파"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "역전파",
+   "label": "역전파",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "손실-함수",
+    "미분",
+    "연쇄법칙"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "연쇄법칙",
+   "label": "연쇄법칙",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "경사하강법",
+   "label": "경사하강법",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "역전파"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "가중치-업데이트",
+   "label": "가중치 업데이트",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "경사하강법"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "과적합",
+   "label": "과적합",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "신경망",
+    "데이터셋"
+   ],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "데이터셋",
+   "label": "데이터셋",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [],
+   "sources": [],
+   "note": ""
+  },
+  {
+   "id": "일반화",
+   "label": "일반화",
+   "domain": "learning",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "과적합"
+   ],
+   "sources": [],
+   "note": ""
+  }
+ ]
+}

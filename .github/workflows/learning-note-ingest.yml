@@ -13,7 +13,10 @@ name: learning-note-ingest
 # 신뢰할 수 없는 작성자를 신뢰할 수 있는 작성자로 바꾼 것뿐이다(헌법 13조 경계 불변).
 on:
   issues:
-    types: [closed]
+    # `opened`가 없으면 사람이 손으로 Run workflow를 눌러야 한다 — 자동화가 아니다
+    # (유지훈 2026-08-01: "이슈가 만들어져도 자동으로 CI가 액션을 실행하지 않음").
+    # 러너의 close 호출은 실패할 수 있으므로 **생성 시점**이 1차 트리거다.
+    types: [opened, edited, closed]
   issue_comment:
     types: [created]
   workflow_dispatch:
@@ -111,7 +114,11 @@ jobs:
               : '기록할 변경이 없었다.';
             await github.rest.issues.createComment(
               { owner: context.repo.owner, repo: context.repo.repo, issue_number: number, body });
-            if (context.payload.issue?.state === 'open') {
+            // 생성 직후 수집은 **닫지 않는다** — 노트가 길어 코멘트로 이어 쓰는 중일 수 있다.
+            // 그 코멘트(`/기록`)나 러너의 close가 오면 같은 파일을 덮어쓰며 다시 접힌다.
+            if (context.payload.action === 'opened') {
+              core.info('생성 트리거 — 이어쓸 수 있으므로 Issue를 열어 둔다.');
+            } else if (context.payload.issue?.state === 'open') {
               await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo,
                 issue_number: number, state: 'closed' });
             }

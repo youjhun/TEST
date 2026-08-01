@@ -1,0 +1,29 @@
+# 논문 스케줄링 — 내가 따라가고 싶은 연구 주제
+#
+# 여기에 주제를 적어 두면, 매주 자동으로 **새로 나온 논문**을 찾아
+# `papers/`에 모아 주고 Issue로 알려준다(내 repo의 GitHub Actions가 함).
+# 학습 세션을 시작하면 러너가 이 목록을 보고 "이번 주 새 논문"을 학습에 엮는다.
+#
+# 쓰는 법: query는 **영어**로. 논문 검색은 영어가 압도적으로 잘 걸린다.
+# 필요 없으면 topics를 비워 두면 된다(그러면 아무것도 안 한다).
+#
+# 수동으로 지금 당장 돌려보려면:
+#   repo → Actions → "paper-scan" → Run workflow
+
+# 며칠 이내에 나온 논문을 새 것으로 볼지 (기본 14일)
+window_days: 14
+
+# 주제당 최대 몇 편까지 담을지 (기본 5)
+max_per_topic: 5
+
+# ⬇️ 비어 있으면 아무 일도 일어나지 않는다(안전 기본값).
+#    아래 예시의 # 을 지우고 내 주제로 바꾸면 그때부터 매주 돈다.
+topics: []
+
+  # - id: my-lab
+  #   label: "우리 연구실 주제"
+  #   query: "neural prosthetics implantable electrode decoding"
+
+  # - id: example-mosfet
+  #   label: "MOSFET 신뢰성"
+  #   query: "MOSFET threshold voltage reliability degradation"

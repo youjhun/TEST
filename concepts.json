@@ -1,14 +1,13 @@
 {
  "concepts": [
   {
-   "id": "딥러닝",
-   "label": "딥러닝",
-   "domain": "learning",
+   "id": "선형변환",
+   "label": "선형변환",
+   "domain": "수학 기초",
    "state": "미학습",
    "importance": "M",
    "prereq": [
-    "선형대수",
-    "미분"
+    "선형대수"
    ],
    "sources": [],
    "note": ""
@@ -16,7 +15,7 @@
   {
    "id": "선형대수",
    "label": "선형대수",
-   "domain": "learning",
+   "domain": "수학 기초",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
@@ -24,9 +23,28 @@
    "note": ""
   },
   {
+   "id": "딥러닝",
+   "label": "딥러닝",
+   "domain": "딥러닝",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "선형대수",
+    "미분"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "내말",
+     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
+    }
+   ],
+   "note": ""
+  },
+  {
    "id": "미분",
    "label": "미분",
-   "domain": "learning",
+   "domain": "수학 기초",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
@@ -36,7 +54,7 @@
   {
    "id": "신경망",
    "label": "신경망",
-   "domain": "learning",
+   "domain": "딥러닝",
    "state": "미학습",
    "importance": "M",
    "prereq": [
@@ -44,33 +62,50 @@
     "선형변환",
     "활성화-함수"
    ],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "선형변환",
-   "label": "선형변환",
-   "domain": "learning",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "내말",
+     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
+    }
+   ],
    "note": ""
   },
   {
    "id": "활성화-함수",
    "label": "활성화 함수",
-   "domain": "learning",
+   "domain": "딥러닝",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "교정",
+     "match": "활성화 함수가 없으면 여러 선형층을 쌓아도 전체는 하나의 선형 변환과 같아진다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "퀴즈",
+     "match": "Q1: 활성화 함수가 필요한 이유는 무엇인가? / 내 답: 여러 층을 쌓았을 때 비선형 관계를 표현하기 위해서다. / 채점: 정답"
+    }
+   ],
    "note": ""
   },
   {
    "id": "순전파",
    "label": "순전파",
-   "domain": "learning",
+   "domain": "딥러닝",
    "state": "미학습",
    "importance": "M",
    "prereq": [
@@ -82,19 +117,25 @@
   {
    "id": "손실-함수",
    "label": "손실 함수",
-   "domain": "learning",
+   "domain": "최적화",
    "state": "미학습",
    "importance": "M",
    "prereq": [
     "순전파"
    ],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "손실 함수는 모델의 예측과 정답 사이의 차이를 하나의 수치로 나타낸다."
+    }
+   ],
    "note": ""
   },
   {
    "id": "역전파",
    "label": "역전파",
-   "domain": "learning",
+   "domain": "최적화",
    "state": "미학습",
    "importance": "M",
    "prereq": [
@@ -102,35 +143,83 @@
     "미분",
     "연쇄법칙"
    ],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "역전파는 연쇄법칙을 이용해 각 가중치가 손실에 미친 영향을 뒤에서부터 계산한다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "내말",
+     "match": "\"역전파는 틀린 정도를 뒤에서부터 전달하면서 각 가중치를 얼마나 바꿀지 계산하는 과정인 것 같다.\""
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "교정",
+     "match": "역전파가 오차 자체를 그대로 전달하는 과정이라고 보면 부정확하다. 실제로는 각 파라미터에 대한 손실의 기울기를 연쇄법칙으로 계산한다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "퀴즈",
+     "match": "Q2: 역전파와 경사하강법의 차이는 무엇인가? / 내 답: 역전파는 기울기를 계산하고, 경사하강법은 그 기울기로 가중치를 갱신한다. / 채점: 정답"
+    }
+   ],
    "note": ""
   },
   {
    "id": "연쇄법칙",
    "label": "연쇄법칙",
-   "domain": "learning",
+   "domain": "수학 기초",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "역전파는 연쇄법칙을 이용해 각 가중치가 손실에 미친 영향을 뒤에서부터 계산한다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "교정",
+     "match": "역전파가 오차 자체를 그대로 전달하는 과정이라고 보면 부정확하다. 실제로는 각 파라미터에 대한 손실의 기울기를 연쇄법칙으로 계산한다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "취약",
+     "match": "연쇄법칙이 실제 계산 그래프에서 어떻게 적용되는지"
+    }
+   ],
    "note": ""
   },
   {
    "id": "경사하강법",
    "label": "경사하강법",
-   "domain": "learning",
+   "domain": "최적화",
    "state": "미학습",
    "importance": "M",
    "prereq": [
     "역전파"
    ],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "경사하강법은 손실을 줄이는 방향으로 가중치를 조금씩 갱신하는 방법이다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "퀴즈",
+     "match": "Q2: 역전파와 경사하강법의 차이는 무엇인가? / 내 답: 역전파는 기울기를 계산하고, 경사하강법은 그 기울기로 가중치를 갱신한다. / 채점: 정답"
+    }
+   ],
    "note": ""
   },
   {
    "id": "가중치-업데이트",
    "label": "가중치 업데이트",
-   "domain": "learning",
+   "domain": "최적화",
    "state": "미학습",
    "importance": "M",
    "prereq": [
@@ -142,20 +231,31 @@
   {
    "id": "과적합",
    "label": "과적합",
-   "domain": "learning",
+   "domain": "일반화·검증",
    "state": "미학습",
    "importance": "M",
    "prereq": [
     "신경망",
     "데이터셋"
    ],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "교정",
+     "match": "층이 많다고 자동으로 좋은 모델이 되는 것은 아니다. 데이터, 최적화, 과적합 제어가 함께 중요하다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "취약",
+     "match": "과적합과 일반화의 차이를 예시로 설명하는 것"
+    }
+   ],
    "note": ""
   },
   {
    "id": "데이터셋",
    "label": "데이터셋",
-   "domain": "learning",
+   "domain": "일반화·검증",
    "state": "미학습",
    "importance": "M",
    "prereq": [],
@@ -165,13 +265,19 @@
   {
    "id": "일반화",
    "label": "일반화",
-   "domain": "learning",
+   "domain": "일반화·검증",
    "state": "미학습",
    "importance": "M",
    "prereq": [
     "과적합"
    ],
-   "sources": [],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "취약",
+     "match": "과적합과 일반화의 차이를 예시로 설명하는 것"
+    }
+   ],
    "note": ""
   }
  ]

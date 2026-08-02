@@ -99,6 +99,33 @@ def parse_mastery(path=MASTERY):
     return out
 
 
+def is_example_note(text):
+    """예시 노트인가 — frontmatter `tags:`에 `example`이 있으면 그렇다.
+
+    템플릿이 함께 주는 `daily/2026-01-01-example-session.md`는 **가상의 세션**이다.
+    그 문장이 사용자의 근거로 붙으면 하지도 않은 공부가 이해의 증거가 된다 —
+    이 시스템이 막으려는 바로 그것("증거 없는 설명가능은 자기기만")이다.
+    그래서 개념·선수관계·근거 어디에도 쓰지 않는다. 파일명이 아니라 표식으로 거른다.
+    """
+    m = re.match(r"^---\n(.*?)\n---", text or "", re.S)
+    if not m:
+        return False
+    tags = re.search(r"^tags:\s*\[(.*?)\]", m.group(1), re.M)
+    if not tags:
+        return False
+    return "example" in [t.strip().strip("\"'") for t in tags.group(1).split(",")]
+
+
+def _daily_notes(daily_dir):
+    """수집 대상 노트 — 예시 노트는 뺀다."""
+    for path in sorted(glob.glob(os.path.join(daily_dir, "*.md"))):
+        with open(path, encoding="utf-8") as f:
+            text = f.read()
+        if is_example_note(text):
+            continue
+        yield path, text
+
+
 def _section_body(text, title):
     """`## <title>` 절의 본문. 제목은 부분 일치(이모지·괄호 주석이 붙어도 찾도록)."""
     m = re.search(r"^##\s*.*%s.*$" % re.escape(title), text, re.M)
@@ -135,9 +162,8 @@ def parse_concept_map(daily_dir=DAILY_DIR):
     """
     edges = []
     domain_of = {}
-    for path in sorted(glob.glob(os.path.join(daily_dir, "*.md"))):
-        with open(path, encoding="utf-8") as f:
-            body = _section_body(f.read(), SECTION)
+    for _path, text in _daily_notes(daily_dir):
+        body = _section_body(text, SECTION)
         if not body:
             continue
         current_domain = ""
@@ -214,9 +240,7 @@ def collect_sources(labels, daily_dir=DAILY_DIR):
     sources = {lb: [] for lb in labels}
     by_len = sorted(labels, key=len, reverse=True)
 
-    for path in sorted(glob.glob(os.path.join(daily_dir, "*.md"))):
-        with open(path, encoding="utf-8") as f:
-            text = f.read()
+    for path, text in _daily_notes(daily_dir):
         for title, kind in SOURCE_SECTIONS:
             body = _section_body(text, title)
             if not body:

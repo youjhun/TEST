@@ -1,149 +1,128 @@
 {
  "concepts": [
   {
-   "id": "선형변환",
-   "label": "선형변환",
-   "domain": "수학 기초",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "선형대수"
-   ],
-   "sources": [],
-   "note": ""
-  },
-  {
    "id": "선형대수",
    "label": "선형대수",
    "domain": "수학 기초",
-   "state": "미학습",
-   "importance": "M",
+   "state": "설명가능",
+   "importance": "H",
    "prereq": [],
-   "sources": [],
-   "note": ""
+   "sources": [
+    {
+     "file": "daily/2026-07-28-linear-algebra-basics.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-07-28"
   },
   {
-   "id": "딥러닝",
-   "label": "딥러닝",
-   "domain": "딥러닝",
-   "state": "미학습",
-   "importance": "M",
+   "id": "선형변환",
+   "label": "선형변환",
+   "domain": "수학 기초",
+   "state": "설명가능",
+   "importance": "H",
    "prereq": [
-    "선형대수",
-    "미분"
+    "선형대수"
    ],
    "sources": [
     {
-     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "file": "daily/2026-07-28-linear-algebra-basics.md",
      "kind": "내말",
-     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
+     "match": "\"선형변환은 직선이 직선으로 가는 변환인 것 같다.\""
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "원장",
+     "match": ""
     }
    ],
-   "note": ""
+   "note": "2026-08-04"
   },
   {
    "id": "미분",
    "label": "미분",
    "domain": "수학 기초",
-   "state": "미학습",
-   "importance": "M",
+   "state": "설명가능",
+   "importance": "H",
    "prereq": [],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "신경망",
-   "label": "신경망",
-   "domain": "딥러닝",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "딥러닝",
-    "선형변환",
-    "활성화-함수"
-   ],
    "sources": [
     {
-     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "file": "daily/2026-07-28-linear-algebra-basics.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-07-28"
+  },
+  {
+   "id": "연쇄법칙",
+   "label": "연쇄법칙",
+   "domain": "수학 기초",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [],
+   "sources": [
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
      "kind": "지식",
-     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
+     "match": "연쇄법칙은 **\"영향의 곱\"**이다. `x → u → L`일 때 x가 L에 주는 영향은 (x가 u에 주는 영향) × (u가 L에 주는 영향)이다. 중간 단계가 몇 개든 곱으로 이어진다."
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "지식",
+     "match": "신경망은 함수의 합성일 뿐이다. 그래서 마지막 층의 손실에서 시작해 **한 층씩 거슬러 올라가며 곱을 누적**하면 모든 가중치의 기울기가 나온다 — 이게 역전파다. 새로운 수학이 아니라 연쇄법칙을 낭비 없이 계산하는 **순서**다."
     },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
-     "kind": "내말",
-     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
-    }
-   ],
-   "note": ""
-  },
-  {
-   "id": "활성화-함수",
-   "label": "활성화 함수",
-   "domain": "딥러닝",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [],
-   "sources": [
-    {
-     "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "지식",
-     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
+     "match": "역전파는 연쇄법칙을 이용해 각 가중치가 손실에 미친 영향을 뒤에서부터 계산한다."
     },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "교정",
-     "match": "활성화 함수가 없으면 여러 선형층을 쌓아도 전체는 하나의 선형 변환과 같아진다."
+     "match": "역전파가 오차 자체를 그대로 전달하는 과정이라고 보면 부정확하다. 실제로는 각 파라미터에 대한 손실의 기울기를 연쇄법칙으로 계산한다."
     },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
-     "kind": "퀴즈",
-     "match": "Q1: 활성화 함수가 필요한 이유는 무엇인가? / 내 답: 여러 층을 쌓았을 때 비선형 관계를 표현하기 위해서다. / 채점: 정답"
-    }
-   ],
-   "note": ""
-  },
-  {
-   "id": "순전파",
-   "label": "순전파",
-   "domain": "딥러닝",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "신경망"
-   ],
-   "sources": [],
-   "note": ""
-  },
-  {
-   "id": "손실-함수",
-   "label": "손실 함수",
-   "domain": "최적화",
-   "state": "미학습",
-   "importance": "M",
-   "prereq": [
-    "순전파"
-   ],
-   "sources": [
+     "kind": "취약",
+     "match": "연쇄법칙이 실제 계산 그래프에서 어떻게 적용되는지"
+    },
     {
-     "file": "daily/2026-08-01-deep-learning-basics.md",
-     "kind": "지식",
-     "match": "손실 함수는 모델의 예측과 정답 사이의 차이를 하나의 수치로 나타낸다."
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "원장",
+     "match": ""
     }
    ],
-   "note": ""
+   "note": "2026-07-31"
   },
   {
    "id": "역전파",
    "label": "역전파",
    "domain": "최적화",
-   "state": "미학습",
-   "importance": "M",
+   "state": "암기",
+   "importance": "H",
    "prereq": [
     "손실-함수",
     "미분",
     "연쇄법칙"
    ],
    "sources": [
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "지식",
+     "match": "신경망은 함수의 합성일 뿐이다. 그래서 마지막 층의 손실에서 시작해 **한 층씩 거슬러 올라가며 곱을 누적**하면 모든 가중치의 기울기가 나온다 — 이게 역전파다. 새로운 수학이 아니라 연쇄법칙을 낭비 없이 계산하는 **순서**다."
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "내말",
+     "match": "\"역전파는 오차를 뒤에서부터 전달하면서 가중치를 고치는 알고리즘이다. 공식은 봤는데 왜 그 모양인지는 모른다.\""
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "취약",
+     "match": "역전파를 실제 코드로 한 층씩 구현하는 것 (수식은 따라가지만 인덱스에서 막힘)"
+    },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "지식",
@@ -163,32 +142,202 @@
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "퀴즈",
      "match": "Q2: 역전파와 경사하강법의 차이는 무엇인가? / 내 답: 역전파는 기울기를 계산하고, 경사하강법은 그 기울기로 가중치를 갱신한다. / 채점: 정답"
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "지식",
+     "match": "순전파는 이 과정을 입력에서 출력까지 한 번 통과시키는 것이다 — 변환·칸막이·변환·칸막이의 반복. 예측이 나오는 경로이자, 역전파가 거슬러 올라갈 길을 남기는 과정이다."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "교정",
+     "match": "용어 혼동: 순전파와 추론을 같은 말로 쓰고 있었다. 추론은 순전파만 하고 끝나지만, 학습 중의 순전파는 중간값을 저장해 둔다(역전파에 필요해서)."
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "원장",
+     "match": ""
     }
    ],
-   "note": ""
+   "note": "2026-07-31"
   },
   {
-   "id": "연쇄법칙",
-   "label": "연쇄법칙",
-   "domain": "수학 기초",
-   "state": "미학습",
+   "id": "손실-함수",
+   "label": "손실 함수",
+   "domain": "최적화",
+   "state": "암기",
+   "importance": "M",
+   "prereq": [
+    "순전파"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "취약",
+     "match": "손실 함수를 왜 MSE가 아니라 크로스엔트로피로 고르는지"
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "손실 함수는 모델의 예측과 정답 사이의 차이를 하나의 수치로 나타낸다."
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-07-31"
+  },
+  {
+   "id": "활성화-함수",
+   "label": "활성화 함수",
+   "domain": "딥러닝",
+   "state": "설명가능",
    "importance": "M",
    "prereq": [],
    "sources": [
     {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "교정",
+     "match": "\"오차를 전달한다\"는 표현이 오해를 만들고 있었다. 전달되는 건 오차가 아니라 **기울기(민감도)** 다. 오차 자체가 층을 타고 흐른다고 생각하면, 활성화 함수의 도함수가 왜 곱해지는지 설명이 안 된다."
+    },
+    {
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "지식",
-     "match": "역전파는 연쇄법칙을 이용해 각 가중치가 손실에 미친 영향을 뒤에서부터 계산한다."
+     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
     },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "교정",
-     "match": "역전파가 오차 자체를 그대로 전달하는 과정이라고 보면 부정확하다. 실제로는 각 파라미터에 대한 손실의 기울기를 연쇄법칙으로 계산한다."
+     "match": "활성화 함수가 없으면 여러 선형층을 쌓아도 전체는 하나의 선형 변환과 같아진다."
     },
     {
      "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "퀴즈",
+     "match": "Q1: 활성화 함수가 필요한 이유는 무엇인가? / 내 답: 여러 층을 쌓았을 때 비선형 관계를 표현하기 위해서다. / 채점: 정답"
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "지식",
+     "match": "활성화 함수가 없으면 **층을 아무리 쌓아도 행렬 하나로 접힌다.** `W₂(W₁x) = (W₂W₁)x` 이고 `W₂W₁`도 그냥 행렬이다. 즉 100층짜리 선형 신경망의 표현력은 1층과 같다 — 이게 7월 28일에 배운 \"행렬은 변환\"과 정확히 이어진다."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "지식",
+     "match": "활성화 함수는 그 접힘을 막는 **칸막이**다. 층 사이에 비선형을 하나 끼우면 더 이상 하나의 행렬로 합쳐지지 않고, 층마다 공간을 다르게 접을 수 있다."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "내말",
+     "match": "\"활성화 함수는 비선형성을 준다고 배웠는데, 왜 비선형이 필요한지는 '표현력이 늘어서'라고만 외웠다.\""
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "퀴즈",
+     "match": "Q1: 활성화 함수를 `f(x)=2x`로 두면 어떻게 되나?"
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
+  },
+  {
+   "id": "순전파",
+   "label": "순전파",
+   "domain": "딥러닝",
+   "state": "설명가능",
+   "importance": "H",
+   "prereq": [
+    "신경망"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "지식",
+     "match": "순전파는 이 과정을 입력에서 출력까지 한 번 통과시키는 것이다 — 변환·칸막이·변환·칸막이의 반복. 예측이 나오는 경로이자, 역전파가 거슬러 올라갈 길을 남기는 과정이다."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "교정",
+     "match": "용어 혼동: 순전파와 추론을 같은 말로 쓰고 있었다. 추론은 순전파만 하고 끝나지만, 학습 중의 순전파는 중간값을 저장해 둔다(역전파에 필요해서)."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
+  },
+  {
+   "id": "신경망",
+   "label": "신경망",
+   "domain": "딥러닝",
+   "state": "암기",
+   "importance": "H",
+   "prereq": [
+    "딥러닝",
+    "선형변환",
+    "활성화-함수"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-07-28-linear-algebra-basics.md",
+     "kind": "지식",
+     "match": "그래서 신경망의 층 하나가 행렬곱인 이유도 \"계산이 편해서\"가 아니라, **공간을 접고 늘려서 원래 섞여 있던 데이터를 분리 가능한 모양으로 바꾸려는 것**이다."
+    },
+    {
+     "file": "daily/2026-07-31-chain-rule-backprop.md",
+     "kind": "지식",
+     "match": "신경망은 함수의 합성일 뿐이다. 그래서 마지막 층의 손실에서 시작해 **한 층씩 거슬러 올라가며 곱을 누적**하면 모든 가중치의 기울기가 나온다 — 이게 역전파다. 새로운 수학이 아니라 연쇄법칙을 낭비 없이 계산하는 **순서**다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "지식",
+     "match": "신경망은 입력값에 가중치를 곱하고 편향을 더한 뒤 활성화 함수를 통과시키는 계산을 여러 층으로 쌓은 모델이다."
+    },
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "내말",
+     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "지식",
+     "match": "활성화 함수가 없으면 **층을 아무리 쌓아도 행렬 하나로 접힌다.** `W₂(W₁x) = (W₂W₁)x` 이고 `W₂W₁`도 그냥 행렬이다. 즉 100층짜리 선형 신경망의 표현력은 1층과 같다 — 이게 7월 28일에 배운 \"행렬은 변환\"과 정확히 이어진다."
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
      "kind": "취약",
-     "match": "연쇄법칙이 실제 계산 그래프에서 어떻게 적용되는지"
+     "match": "신경망 전체를 처음부터 끝까지 자기 말로 조립하기 (부분은 되는데 이어지지 않음)"
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "원장",
+     "match": ""
+    }
+   ],
+   "note": "2026-08-04"
+  },
+  {
+   "id": "딥러닝",
+   "label": "딥러닝",
+   "domain": "딥러닝",
+   "state": "미학습",
+   "importance": "M",
+   "prereq": [
+    "선형대수",
+    "미분"
+   ],
+   "sources": [
+    {
+     "file": "daily/2026-08-01-deep-learning-basics.md",
+     "kind": "내말",
+     "match": "\"딥러닝은 데이터에서 패턴을 찾아서 입력을 출력으로 바꾸는 여러 층의 신경망이라고 생각한다.\""
     }
    ],
    "note": ""
@@ -248,6 +397,11 @@
      "file": "daily/2026-08-01-deep-learning-basics.md",
      "kind": "취약",
      "match": "과적합과 일반화의 차이를 예시로 설명하는 것"
+    },
+    {
+     "file": "daily/2026-08-04-activation-forward.md",
+     "kind": "취약",
+     "match": "과적합이 왜 생기는지"
     }
    ],
    "note": ""

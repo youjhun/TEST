@@ -1,4 +1,19 @@
-# Socralearner
+# Socralearner — 데모 저장소
+
+> ## ⚠️ 이 저장소는 **미리보기용 데모**입니다
+>
+> `daily/`의 세션 기록과 `mastery.md`의 이해도는 **실제로 일어난 학습이 아니라 예시**입니다
+> (노트 frontmatter의 `tags:`에 `demo` 표시). Topdown 화면이 채워졌을 때 어떻게 보이는지를
+> 보여주려고 딥러닝 기초 주제로 만들었습니다.
+>
+> **파일럿 참가자의 학습 증거로 세지 않습니다.** 실제 검증 기록은 Topdown의
+> `docs/experiments/proof-log.md`에만 있습니다.
+>
+> 👉 **화면으로 보기** — Topdown에서 이 저장소를 열면 지식 그래프 · 🚧 막힌 길목 · 다음 행동이 나옵니다.
+>
+> 내 저장소를 만들려면 [Socralearner 템플릿](https://github.com/youjhun/Socralearner)의 `SETUP.md`를 보세요.
+
+---
 
 > **AI 시대에 할 수 있는 진짜 좋은 공부.**
 > AI가 답을 떠먹여주는 대신 **내가 먼저 설명하게** 하고, 그 과정을 **내 GitHub에 자동으로 쌓아** 주는 학습 시스템.
